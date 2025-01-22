@@ -13,7 +13,7 @@ const Result = () => {
         onCountWrong();
     }, [])
 
-    const onGetStyle = (q: any, qIndex: number, answer: string) => {
+    const onGetStyle = (qIndex: number, answer: string) => {
         if (selectedAnswers.includes(answer)) {
             return { color: 'white', background: 'green' }
         }
@@ -68,7 +68,7 @@ const Result = () => {
                                             q.answers?.map((a: string, j: number) => {
                                                 return (
                                                     <li key={j} className='answer'>
-                                                        <Button style={onGetStyle(q, i, a)}>{a}</Button>
+                                                        <Button style={onGetStyle(i, a)}>{a}</Button>
                                                     </li>
                                                 )
                                             })
