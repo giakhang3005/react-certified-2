@@ -1,0 +1,31 @@
+.app {
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.search-select {
+    width: calc(100%/3);
+}
+
+.questions-list, .answers-list {
+    list-style: none;
+    padding: 0;
+}
+
+.answers-list {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0 20px 0;
+}
+
+.correct {
+    background: green !important;
+}
