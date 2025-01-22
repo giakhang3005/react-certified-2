@@ -4,7 +4,7 @@ import { Button, Select, message } from 'antd';
 
 type Props = {}
 
-const Search = ({ onCreateQuiz }: any) => {
+const Search = ({ onCreateQuiz, setIsLoading }: any) => {
     const { onGetAllCategories } = useAPIs();
     const [categories, setCategories] = useState([]);
     const [difficulties, setDifficulties] = useState([]);
@@ -19,7 +19,9 @@ const Search = ({ onCreateQuiz }: any) => {
     }, []);
 
     const onInitCategories = async () => {
+        setIsLoading(true);
         const result = await onGetAllCategories();
+        setIsLoading(false);
 
         if (!result) {
             message.error('Failed to get all categories');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Search from './Search'
-import { message } from 'antd';
+import { Spin, message } from 'antd';
 import { useAPIs } from '../../useAPIs';
 import Questions from './Questions';
 
@@ -8,10 +8,13 @@ type Props = {}
 
 const Home = (props: Props) => {
     const { onGetQuestions } = useAPIs();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [questionsList, setQuestionsList] = useState([]);
 
     const onCreateQuiz = async (category: number, difficulty: string) => {
+        setIsLoading(true);
         const result = await onGetQuestions(category, difficulty);
+        setIsLoading(false)
         if (!result) {
             message.error('Failed to get questions');
             return;
@@ -21,10 +24,10 @@ const Home = (props: Props) => {
     }
 
     return (
-        <>
-            <Search onCreateQuiz={onCreateQuiz} />
+        <Spin spinning={isLoading} tip="Preparing Data...">
+            <Search onCreateQuiz={onCreateQuiz} setIsLoading={setIsLoading}/>
             <Questions questionsList={questionsList} />
-        </>
+        </Spin>
     )
 }
 
