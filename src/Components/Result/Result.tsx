@@ -1,10 +1,8 @@
 import { Button, Col, Row } from 'antd';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-type Props = {}
-
-const Result = (props: Props) => {
+const Result = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { questionsListLocal, selectedAnswers } = location.state || {};

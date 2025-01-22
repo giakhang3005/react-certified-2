@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Search from './Search'
 import { Spin, message } from 'antd';
 import { useAPIs } from '../../useAPIs';
 import Questions from './Questions';
 
-type Props = {}
-
-const Home = (props: Props) => {
+const Home = () => {
     const { onGetQuestions } = useAPIs();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [questionsList, setQuestionsList] = useState([]);

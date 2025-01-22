@@ -1,8 +1,6 @@
 import { Button, Col, Row } from 'antd';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
-type Props = {}
 
 const Questions = ({ questionsList }: any) => {
     if (!questionsList || questionsList.length === 0) return;

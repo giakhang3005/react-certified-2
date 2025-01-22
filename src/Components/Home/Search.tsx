@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAPIs } from '../../useAPIs';
 import { Button, Select, message } from 'antd';
-
-type Props = {}
 
 const Search = ({ onCreateQuiz, setIsLoading }: any) => {
     const { onGetAllCategories } = useAPIs();
